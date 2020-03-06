@@ -1,20 +1,8 @@
 <h2>All Users</h2>
 <ul class="users">
-  <li *ngFor="let user of users" 
-  [class.selected]="user === selectedUser"
-  (click)="onSelect(user)">
+  <li *ngFor="let user of users" [class.selected]="user === selectedUser" (click)="onSelect(user)">
     <span class="badge">{{ user.id }}</span> {{ user.name }}
   </li>
 </ul>
 
-<div *ngIf="selectedUser">
-
-  <h2>{{ selectedUser.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ selectedUser.id }}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedUser.name" placeholder="name"/>
-    </label>
-  </div>
-
-</div>
+<app-user-detail [user]="selectedUser"></app-user-detail>
