@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.userService.getHeroes().subscribe(users => this.users = users);
+    this.userService.getUsers().subscribe(users => this.users = users);
   }
 
   constructor(private userService: UserService) { }
