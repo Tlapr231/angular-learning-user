@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../users' ;
+import { USERS } from "../mock-users";
+
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
+
 export class UsersComponent implements OnInit {
 
-  user: User = {
-    id: 511388,
-    name: "Ayden Good",
-    email: "Ayden.Good@gmail.com"
-    }
+  selectedUser: User;
+
+  onSelect(user: User):  void {
+    this.selectedUser = user;
+  }
+
+  users = USERS;
 
   constructor() { }
 
