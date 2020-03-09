@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit {
 
   onSelect(user: User):  void {
     this.selectedUser = user;
-    this.messageService.add('UserService: Selected user id=${user,id}');
+    this.messageService.add('UserService: Selected user id : ' + user.id);
   }
 
   getUsers(): void {
