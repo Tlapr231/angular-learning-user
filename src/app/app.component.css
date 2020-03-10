@@ -8,8 +8,15 @@ h2 {
   margin-top: 0;
   padding-top: 0;
 }
+
+nav{
+  text-align: center;
+}
+
 nav a {
   padding: 5px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   text-decoration: none;
   margin-top: 10px;
   display: inline-block;
