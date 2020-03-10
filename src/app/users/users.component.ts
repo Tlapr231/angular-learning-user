@@ -12,18 +12,12 @@ import { MessageService } from "../message.service";
 
 export class UsersComponent implements OnInit {
 
-  selectedUser: User;
   users: User[];
 
   constructor(private userService: UserService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.getUsers();
-  }
-
-  onSelect(user: User):  void {
-    this.selectedUser = user;
-    this.messageService.add('UserService: Selected user id : ' + user.id);
   }
 
   getUsers(): void {
