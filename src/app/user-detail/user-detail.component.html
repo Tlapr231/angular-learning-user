@@ -1,7 +1,9 @@
 <div *ngIf="user">
 
   <h2>{{ user.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ user.id }}</div>
+
+  <div><span>ID: </span>{{ user.id }}</div>
+
   <div>
     <label>Name:
       <input [(ngModel)]="user.name" placeholder="Name"/>
@@ -12,10 +14,10 @@
     <label>Email:
       <input [(ngModel)]="user.email" placeholder="Email"/>
     </label>
+    
   </div>
-
-  <br>
-
+    
+  <button (click)="save()">Save</button>
   <button (click)="goBack()">Back</button>
 
 </div>

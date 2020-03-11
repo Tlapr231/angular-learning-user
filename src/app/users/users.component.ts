@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { User } from '../users' ;
-import { USERS } from "../mock-users";
 import { UserService } from "../user.service";
-import { MessageService } from "../message.service";
 
 @Component({
   selector: 'app-users',
@@ -14,7 +13,7 @@ export class UsersComponent implements OnInit {
 
   users: User[];
 
-  constructor(private userService: UserService, private messageService: MessageService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.getUsers();
@@ -22,6 +21,19 @@ export class UsersComponent implements OnInit {
 
   getUsers(): void {
     this.userService.getUsers().subscribe(users => this.users = users);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return }
+    this.userService.addUser({ name } as User).subscribe(user => {        
+      this.users.push(user);
+    });
+  }
+
+  delete(user: User): void {
+    this.users = this.users.filter(u => u !== user);
+    this.userService.deleteUser(user).subscribe();
   }
 
 }
