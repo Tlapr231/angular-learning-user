@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { ReactiveFormsModule } from '@angular/forms'
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,10 +13,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UsersComponent } from './users/users.component';
 import { UserSearchComponent } from './user-search/user-search.component';
-import { UserService } from './user.service';
 import { MessagesComponent } from './messages/messages.component';
+import { UserService } from './user.service';
 import { MessageService } from './message.service';
+
 import { HelloComponent } from './hello.component';
+import { UserEditorComponent } from './user-editor/user-editor.component';
 
 @NgModule({
   imports:      [ 
@@ -23,7 +26,8 @@ import { HelloComponent } from './hello.component';
     FormsModule, 
     AppRoutingModule, 
     HttpClientModule, 
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }) 
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+    ReactiveFormsModule
   ],
   declarations: [ 
     AppComponent, 
@@ -32,7 +36,7 @@ import { HelloComponent } from './hello.component';
     UserDetailComponent, 
     MessagesComponent, 
     UserSearchComponent, 
-    HelloComponent 
+    HelloComponent, UserEditorComponent 
   ],
   bootstrap:    [ AppComponent ],
   providers: [UserService, MessageService, InMemoryDataService]

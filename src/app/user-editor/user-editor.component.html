@@ -1,0 +1,47 @@
+<form [formGroup]="profileForm" (ngSumbit)="onSubmit()">
+
+  <label>
+    <p>First Name :</p>
+    <input type="text" [formControl]="firstName">
+  </label>
+
+  <br>
+
+  <label>
+    <p>Last Name :</p>
+    <input type="text" [formControl]="lastName">
+  </label>
+
+  <div formGroupName="address">
+    <h3>Address</h3>
+
+    <label>
+      <p>Street :</p>
+      <input type="text" formControlName="street">
+    </label>
+
+    <br>
+
+    <label>
+      <p>City :</p>
+      <input type="text" formControlName="city">
+    </label>
+
+    <br>
+
+    <label>
+      <p>State : </p>
+      <input type="text" formControlName="state">
+    </label>
+
+    <br>
+
+    <label>
+      <p>Zip Code :</p>      
+      <input type="text" formControlName="zip">
+    </label>
+  </div>
+
+<button type="submit" [disabled]="!userForm.valid">Submit</button>
+
+</form>
