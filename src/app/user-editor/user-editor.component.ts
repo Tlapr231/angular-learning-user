@@ -43,6 +43,7 @@ export class UserEditorComponent {
 
   //Submitting the form
   onSubmit() {
+
     const user:  User = {
       name: this.userForm.get("name").value.trim(),
       email: this.userForm.get("email").value.trim(),
@@ -58,9 +59,10 @@ export class UserEditorComponent {
     console.log(user);
     this.messageService.add(`userEditor: ${this.userForm.value.name} has been created`);
     
-    //TODO known bug where onSubmit is triggered when "Add Alias" is Clicked
-    this.goBack();
   }
+
+    // //TODO known bug where onSubmit is triggered when "Add Alias" is Clicked
+    // this.goBack();
 
   //User Management (Adding Users)
   getUsers(): void {
