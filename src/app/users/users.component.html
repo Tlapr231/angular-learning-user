@@ -1,17 +1,14 @@
-<div class="extramargin">
+<h2>All Users</h2>
 
-  <h2>All Users</h2>
+<nav>
+  <a class="add" routerLink="/userform">New User</a>
+</nav>
 
-  <nav>
-    <a class="add" routerLink="/userform">New User</a>
-  </nav>
-
-  <ul class="users">
-    <li *ngFor="let user of users">
-      <a routerLink="/detail/{{user.id}}">
-        <span class="badge">{{ user.id }}</span> {{ user.name }}
-      </a>
-      <button class='delete' title="delete user" (click)="delete(user)">X</button>
-    </li>
-  </ul>
-</div>
+<ul class="users">
+  <li *ngFor="let user of users">
+    <a routerLink="/detail/{{user.id}}">
+      <span class="badge">{{ user.id }}</span> {{ user.name }}
+    </a>
+    <button class='delete' title="delete user" (click)="delete(user)">X</button>
+  </li>
+</ul>
