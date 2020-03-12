@@ -16,7 +16,7 @@ export class UserEditorComponent {
 
   userForm = this.fb.group({
     firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
+    email: ['', Validators.required],
     address: this.fb.group({
       street: [''],
       city: [''],
@@ -41,7 +41,7 @@ export class UserEditorComponent {
   }
 
   onSubmit() {
-    this.messageService.add(`userEditor ${this.userForm.value.firstName} ${this.userForm.value.lastName} as been created`);
+    this.messageService.add(`userEditor ${this.userForm.value.firstName} ${this.userForm.value.lastName} has been created`);
     // console.warn(this.userForm.value);
   }
 }

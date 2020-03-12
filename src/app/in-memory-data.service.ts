@@ -10,16 +10,16 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
     const users = [
-      {id: 11, name: "Saoirse Randolph", email: "SR@gmail.com"},
-      {id: 12, name: "Ayden Good", email: "AG@gmail.com"},
-      {id: 13, name: "Bella-Rose Merritt", email: "BRM@gmail.com"},
-      {id: 14, name: "Eryn Marshall", email: "EM@gmail.com"},
-      {id: 15, name: "Sania Hickman", email: "SH@gmail.com"},
-      {id: 16, name: "Jonathon Ochoa", email: "JO@gmail.com"},
-      {id: 17, name: "Arielle Werner", email: "AW@gmail.com"},
-      {id: 18, name: "Abdi Whittington", email: "AWh@gmail.com"},
-      {id: 19, name: "Aronas Huerta", email: "AH@gmail.com"},
-      {id: 20, name: "Lilly-Rose Murray", email: "LRM@gmail.com"}
+      {id: 11, name: "Saoirse Randolph", email: "SR@gmail.com", street: "737 E. Marsh St.", city: "Trenton", state: "NJ", zip: "08610"},
+      {id: 12, name: "Ayden Good", email: "AG@gmail.com", street: "57 Ashley Rd.", city: "Winter Park", state: "FL", zip: "32792"},
+      {id: 13, name: "Bella-Rose Merritt", email: "BRM@gmail.com", street: "22 Stonybrook Rd.", city: "Burke", state: "VA", zip: "22015"},
+      {id: 14, name: "Eryn Marshall", email: "EM@gmail.com", street: "9832 Armstrong Lane", city: "Falls Church", state: "VA", zip: "22041"},
+      {id: 15, name: "Sania Hickman", email: "SH@gmail.com", street: "8481 West Oxford St.", city: "Macomb", state: "MI", zip: "48042"},
+      {id: 16, name: "Jonathon Ochoa", email: "JO@gmail.com", street: "530 Parker Ave.", city: "Pueblo", state: "CO", zip: "81001"},
+      {id: 17, name: "Arielle Werner", email: "AW@gmail.com", street: "8936 High Ridge Street", city: "Bartlett", state: "IL", zip: "60103"},
+      {id: 18, name: "Abdi Whittington", email: "AWh@gmail.com", street: "966 Fairview Drive", city: "Mentor", state: "OH", zip: "44060"},
+      {id: 19, name: "Aronas Huerta", email: "AH@gmail.com", street: "7133 Galvin St.", city: "Enfield", state: "CT", zip: "06082"},
+      {id: 20, name: "Lilly-Rose Murray", email: "LRM@gmail.com", street: "14 Cobblestone Dr.", city: "Clover", state: "SC", zip: "29710"},
     ];
     return {users};
   }

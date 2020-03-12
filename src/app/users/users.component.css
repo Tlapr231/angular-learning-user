@@ -6,6 +6,27 @@
   width: 15em;
 }
 
+a.add {
+  position: relative;
+  cursor: pointer;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0em 0em 0em;
+  height: 25px;
+  border-radius: 4px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  width: 226px;
+  text-align: center;
+}
+
+a.add:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
 .users li {
   position: relative;
   cursor: pointer;
@@ -42,7 +63,7 @@
   background-color:#405061;
   line-height: 1em;
   position: relative;
-  left: -1px;
+  left: 0px;
   top: -4.7px;
   height: 24px;
   min-width: 16px;

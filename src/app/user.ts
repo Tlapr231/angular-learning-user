@@ -1,5 +1,13 @@
 export interface user{
   id : number;
-  name : String;
-  email : String;
+  firstName : String;
+  lastName: String;
+  email: String;
+
+  street: String;
+  city: String;
+  state: String;
+  zip: String;
+
+  aliases: String[];
 }

@@ -1,13 +1,8 @@
 <h2>All Users</h2>
 
-<div>
-  <label>User's full name:
-    <input #userName />
-  </label>
-  <button (click)="add(userName.value); userName.value=''">
-    Add
-  </button>
-</div>
+<nav>
+  <a class="add" routerLink="/userform">New User</a>
+</nav>
 
 <ul class="users">
   <li *ngFor="let user of users">

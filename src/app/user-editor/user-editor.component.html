@@ -1,13 +1,15 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 
+  <h3>General</h3>
+
   <label>
     First Name:
     <input type="text" formControlName="firstName" required>
   </label>
 
   <label>
-    Last Name:
-    <input type="text" formControlName="lastName">
+    Email:
+    <input type="text" formControlName="email">
   </label>
 
   <div formGroupName="address">
