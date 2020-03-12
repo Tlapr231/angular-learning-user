@@ -1,10 +1,15 @@
-<hello name="{{ name }}"></hello>
+<div class="stick-top">
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/users">Users</a>
+    <a routerLink="/userform">New User</a>
+  </nav>
+</div>
 
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/users">Users</a>
-</nav>
 
-<router-outlet></router-outlet>
-<app-messages></app-messages>
-<app-user-editor></app-user-editor>
+<div class=extrapadding>
+  <hello name="{{ name }}"></hello>
+
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+</div>

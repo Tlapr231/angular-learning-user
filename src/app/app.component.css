@@ -18,6 +18,7 @@ nav a {
   padding: 5px 10px;
   margin-left: 5px;
   margin-right: 5px;
+  margin-bottom: 8px;
   text-decoration: none;
   margin-top: 10px;
   display: inline-block;
@@ -31,6 +32,22 @@ nav a:hover {
   color: #039be5;
   background-color: #cfd8dc;
 }
+
 nav a.active {
   color: #039be5;
+}
+
+div.stick-top {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0px;
+  background: white;
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 4px;
+  z-index: 100;
+}
+
+div.extrapadding {
+  margin: 8px;
 }

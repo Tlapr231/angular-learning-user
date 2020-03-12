@@ -1,47 +1,69 @@
-<form [formGroup]="profileForm" (ngSumbit)="onSubmit()">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 
   <label>
-    <p>First Name :</p>
-    <input type="text" [formControl]="firstName">
+    First Name:
+    <input type="text" formControlName="firstName" required>
   </label>
 
-  <br>
-
   <label>
-    <p>Last Name :</p>
-    <input type="text" [formControl]="lastName">
+    Last Name:
+    <input type="text" formControlName="lastName">
   </label>
 
   <div formGroupName="address">
+
     <h3>Address</h3>
 
     <label>
-      <p>Street :</p>
+      Street:
       <input type="text" formControlName="street">
     </label>
 
-    <br>
-
     <label>
-      <p>City :</p>
+      City:
       <input type="text" formControlName="city">
     </label>
-
-    <br>
-
+    
     <label>
-      <p>State : </p>
+      State:
       <input type="text" formControlName="state">
     </label>
 
-    <br>
-
     <label>
-      <p>Zip Code :</p>      
+      Zip Code:
       <input type="text" formControlName="zip">
     </label>
+
   </div>
 
-<button type="submit" [disabled]="!userForm.valid">Submit</button>
+  <div formArrayName="aliases">
+
+    <h3>Aliases</h3> 
+
+    <div *ngFor="let alias of aliases.controls; let i=index">
+      
+      <span class="alias">
+        <label>
+          Alias:
+          <input type="text" [formControlName]="i">
+        </label>
+      </span>
+
+      <span class="alias" *ngIf="i>0">
+        <button class="delete" (click)="deleteAlias(i)">Delete</button>
+      </span>
+
+    </div>
+  </div>
+
+  <button (click)="addAlias()">Add Alias</button>
+ 
+  <hr>
+
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
 
 </form>
+
+<p>Form Value: {{ userForm.value | json }}</p>
+
+<p>Form Status: {{ userForm.status }}</p>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
 
 import { MessageService } from "../message.service";
 
@@ -9,26 +9,39 @@ import { MessageService } from "../message.service";
   styleUrls: ['./user-editor.component.css']
 })
 export class UserEditorComponent {
+  
+  constructor(
+  private messageService: MessageService,
+  private fb: FormBuilder) { }
 
-  userForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    address: new FormGroup({
-      street: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      zip: new FormControl('')
-    })
+  userForm = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    address: this.fb.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: ['']
+    }),
+    aliases: this.fb.array([
+      this.fb.control('')
+    ])
   });
 
-  constructor(
-  private messageService: MessageService) { }
+  get aliases() {
+    return this.userForm.get('aliases') as FormArray;
+  }
 
-  updateName() {
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
+  }
+
+  deleteAlias(index: number){
+    this.aliases.removeAt(index);
   }
 
   onSubmit() {
-    // this.messageService.add(`userEditor ${this.userForm.value}`);
-    console.warn(this.userForm.value);
+    this.messageService.add(`userEditor ${this.userForm.value.firstName} ${this.userForm.value.lastName} as been created`);
+    // console.warn(this.userForm.value);
   }
 }

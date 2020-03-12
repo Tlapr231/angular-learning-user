@@ -1,36 +1,62 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+}
+
 label {
-  display: inline-block;
-  width: 3em;
+  display: block;
+  width: 6em;
   margin: .5em 0;
   color: #607D8B;
   font-weight: bold;
 }
+
 input {
-  height: 2em;
+  height: 25px;
   font-size: 1em;
   padding-left: .4em;
 }
+
 button {
-  margin-top: 20px;
   font-family: Arial;
   background-color: #eee;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
-  margin-left: 5px;
-  margin-right: 5px;
   cursor: pointer;
-  cursor: hand;
 }
+
 button:hover {
   background-color: #cfd8dc;
 }
+
 button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
 }
-p {
-  margin: 0px;
-  width: 200px;
+
+
+button.delete {
+  position: relative;
+  left: 99.2px;
+  top: -0.5px;
+  border-radius: 0px 4px 4px 0px;
+  height: 31px;
+  background-color: gray !important;
+  color: white;
+}
+
+/* button.delete {
+  position: relative;
+  top: -1px;
+  left: 99.2px; 
+  height: 31px;
+  border-radius: 0px;
+} */
+
+.alias {
+  display: inline-block;
+  padding: 5px;
 }
