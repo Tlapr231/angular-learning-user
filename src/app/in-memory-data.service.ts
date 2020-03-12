@@ -10,7 +10,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
     const users = [
-      {id: 11, name: "Saoirse Randolph", email: "SR@gmail.com", street: "737 E. Marsh St.", city: "Trenton", state: "NJ", zip: "08610"},
+      {id: 11, name: "Saoirse Randolph", email: "SR@gmail.com", street: "737 E. Marsh St.", city: "Trenton", state: "NJ", zip: "08610", aliases: ["SaRa", "Sorrow"]},
       {id: 12, name: "Ayden Good", email: "AG@gmail.com", street: "57 Ashley Rd.", city: "Winter Park", state: "FL", zip: "32792"},
       {id: 13, name: "Bella-Rose Merritt", email: "BRM@gmail.com", street: "22 Stonybrook Rd.", city: "Burke", state: "VA", zip: "22015"},
       {id: 14, name: "Eryn Marshall", email: "EM@gmail.com", street: "9832 Armstrong Lane", city: "Falls Church", state: "VA", zip: "22041"},

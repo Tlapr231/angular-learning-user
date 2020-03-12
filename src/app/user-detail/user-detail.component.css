@@ -1,7 +1,7 @@
 /* HeroDetailComponent's private CSS styles */
 label {
-  display: inline-block;
-  width: 3em;
+  display: block;
+  width: 10em;
   margin: .5em 0;
   color: #607D8B;
   font-weight: bold;
@@ -30,4 +30,34 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+}
+
+.container{
+  border-width: 2px;
+  border-style: solid;
+  margin: 8px 0px;
+  border-radius: 10px;
+  padding: 0 16px 16px 16px ;
+  background-color: #fcfcfc;
+}
+
+.alias {
+  display: inline-block
+}
+
+button.delete {
+  position: relative;
+  left: 40px;
+  top: -0.5px;
+  border-radius: 0px 4px 4px 0px;
+  height: 38px;
+  background-color: gray !important;
+  color: white;
+}
+
+button.end {
+  font-size: 20px;
+  padding: 10px 16px;
+  border-style: solid;
+  border-width: 1px;
 }

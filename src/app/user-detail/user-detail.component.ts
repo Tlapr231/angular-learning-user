@@ -36,4 +36,9 @@ export class UserDetailComponent implements OnInit {
   save(): void {
     this.userService.updateUser(this.user).subscribe(() => this.goBack())
   }
+
+  deleteAlias(index: number): void {
+    //TODO
+    console.log(`deleteAlias: Alias ${index} Deleted (Curently doesn't work)`);
+  }
 }

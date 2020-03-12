@@ -1,14 +1,16 @@
 <div class="stick-top">
-  <nav>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/users">Users</a>
+  <nav class="navbar">
+    <a class="tab" routerLink="/dashboard">Dashboard</a>
+    <a class="tab" routerLink="/users">Users</a>
   </nav>
 </div>
 
 
-<div class=extrapadding>
+<div class="extrapadding">
   <hello name="{{ name }}"></hello>
 
   <router-outlet></router-outlet>
+  <hr>
   <app-messages></app-messages>
+  <hr>
 </div>

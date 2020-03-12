@@ -37,7 +37,6 @@ button:disabled {
   cursor: auto;
 }
 
-
 button.delete {
   position: relative;
   left: 99.2px;
@@ -47,14 +46,6 @@ button.delete {
   background-color: gray !important;
   color: white;
 }
-
-/* button.delete {
-  position: relative;
-  top: -1px;
-  left: 99.2px; 
-  height: 31px;
-  border-radius: 0px;
-} */
 
 .alias {
   display: inline-block;

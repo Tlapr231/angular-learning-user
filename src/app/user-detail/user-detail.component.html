@@ -1,23 +1,62 @@
-<div *ngIf="user">
+<div *ngIf="user" class="extramargin">
 
   <h2>{{ user.name | uppercase }} Details</h2>
 
-  <div><label>ID: </label>{{ user.id }}</div>
 
-  <div>
-    <label>Name:
-      <input [(ngModel)]="user.name" placeholder="Name"/>
-    </label>
+  <div class="container">
 
-    <br>
-    
-    <label>Email:
-      <input [(ngModel)]="user.email" placeholder="Email"/>
-    </label>
+    <h3>General</h3>
+
+      <div><label>ID: </label>{{ user.id }}</div>
+
+      <label>Name :
+        <input [(ngModel)]="user.name" placeholder="Name"/>
+      </label>
+
+      <label>Email :
+        <input [(ngModel)]="user.email" placeholder="Email"/>
+      </label>
     
   </div>
+
+  <div class="container">
     
-  <button (click)="save()">Save</button>
-  <button (click)="goBack()">Back</button>
+    <h3>Address</h3>
+
+    <label>Street :
+      <input [(ngModel)]="user.street" placeholder="Street"/>
+    </label>
+
+    <label>City :
+      <input [(ngModel)]="user.city" placeholder="City"/>
+    </label>
+
+    <label>State :
+      <input [(ngModel)]="user.state" placeholder="State"/>
+    </label>
+
+    <label>Zip Code :
+      <input [(ngModel)]="user.zip" placeholder="Zip Code"/>
+    </label>
+
+  </div>
+
+  <div class="container" *ngIf="user.aliases">
+
+    <h3>Aliases</h3>
+
+    <div *ngFor="let alias of user.aliases; let i=index" >
+      <label class="alias">Alias {{i+1}} :
+        <input [(ngModel)]="alias" placeholder="Alias {{i+1}}"/>
+      </label>
+
+      <button class="delete" (click)="deleteAlias(i)">Delete</button>
+
+    </div>
+
+  </div>
+    
+  <button class="end" (click)="save()">Save</button>
+  <button class="end" (click)="goBack()">Back</button>
 
 </div>
