@@ -2,22 +2,22 @@
 
   <h3>General</h3>
 
-  <label for="name">Name:</label>
+  <label for="name"><span style="color:red">* </span>Name:</label>
   <input id="name" type="text" formControlName="name" required>
-  
+ 
   <div class="error" *ngIf="name.invalid && (name.dirty || name.touched)">
     <div *ngIf="name.errors.required">
       Name is a required field.
     </div>
   </div>
-      
 
-  <label>
-    Email:
-    <input type="text" formControlName="email">
-  </label>
+  <label for="email"><span style="color:red">* </span>Email:</label>
+  <input id="email" type="text" formControlName="email">
+  
   <div class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
-    Email is a required field.
+    <div *ngIf="email.errors.required">
+      Email is a required field.
+    </div>
   </div>
 
 
@@ -25,25 +25,35 @@
 
     <h3>Address</h3>
 
-    <label>
-      Street:
-      <input type="text" formControlName="street">
-    </label>
+    <label for="street">Street:</label>
+    <input id="street" type="text" formControlName="street">
 
-    <label>
-      City:
-      <input type="text" formControlName="city">
-    </label>
-    
-    <label>
-      State:
-      <input type="text" formControlName="state">
-    </label>
+    <div class="error" *ngIf="street.invalid && (street.dirty || street.touched)">
+      Street is invalid.
+    </div>
 
-    <label>
-      Zip Code:
-      <input type="text" formControlName="zip">
-    </label>
+
+    <label for="city">City:</label>
+    <input id="city" type="text" formControlName="city">
+
+    <div class="error" *ngIf="city.invalid && (city.dirty || city.touched)">
+      City is invalid.
+    </div>
+
+
+    <label for="state">State:</label>
+    <input id="state" type="text" formControlName="state">
+    <div class="error" *ngIf="state.invalid && (state.dirty || state.touched)">
+      State is invalid.
+    </div>
+
+
+    <label for="zip">Zip Code:</label>
+    <input id="zip" type="text" formControlName="zip">
+
+    <div class="error" *ngIf="zip.invalid && (zip.dirty || zip.touched)">
+      Zip is invalid.
+    </div>
 
   </div>
 
@@ -53,29 +63,31 @@
 
     <div *ngFor="let alias of aliases.controls; let i=index">
       
-      <span class="alias">
-        <label>
-          Alias:
-          <input type="text" [formControlName]="i">
+      <div class="alias">
+
+        <label class="alias">
+          <p>Alias:</p>
+          <input class="alias" type="text" [formControlName]="i">
         </label>
-      </span>
 
-      <span class="alias" *ngIf="i>0">
-        <button class="delete" (click)="deleteAlias(i)">Delete</button>
-      </span>
-
+        <span class="alias" *ngIf="i>0">
+          <button class="delete" (click)="deleteAlias(i)">Delete</button>
+        </span>
+      
+      </div>
+      
     </div>
   </div>
 
-  <button (click)="addAlias()">Add Alias</button>
-  <button (click)="goBack()">Cancel</button>
+  <button class="alias" (click)="addAlias()">Add Alias</button>
+  <button class="alias" (click)="goBack()">Cancel</button>
  
   <hr>
 
   <button (click)="onClickSubmit()" type="submit" [disabled]="!userForm.valid">Submit</button>
 
+  <p>Form Value: {{ userForm.value | json }}</p>
+  <p>Form Status: {{ userForm.status }}</p>
+
 </form>
 
-<p>Form Value: {{ userForm.value | json }}</p>
-
-<p>Form Status: {{ userForm.status }}</p>

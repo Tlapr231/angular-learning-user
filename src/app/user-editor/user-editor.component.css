@@ -6,7 +6,7 @@
 
 label {
   display: block;
-  width: 6em;
+  width: 100%;
   margin: .5em 0;
   color: #757575;
   font-weight: bold;
@@ -14,12 +14,16 @@ label {
 
 input {
   height: 25px;
+  width: 50%;
+  margin: auto;
   font-size: 1em;
+  padding-left: 5px;
   outline: 0;
   border-style: solid;
-  padding-left: .4em;
   border-radius: 5px;
+  border-width: 1.5px 1.5px 1.5px 5px;
   border-color: lightgray;
+  border-left-color: gray;
   transition: border-color 0.5s;
 }
 
@@ -31,8 +35,8 @@ input:focus {
 button {
   font-family: Arial;
   background-color: #eee;
-  padding: 5px 10px;
-  margin: 0 6px;
+  padding: 5px 10px ;
+  margin: 0 8px 0 0;
   border: solid 1px;
   border-radius: 4px;
   outline: 0;
@@ -51,17 +55,20 @@ button:disabled {
 
 button.delete {
   position: relative;
-  left: 99.2px;
-  top: -0.5px;
+  /* left: 99.2px; */
+  top: -1px;
   border-radius: 4px;
   height: 31px;
   background-color: gray !important;
   color: white;
 }
 
-.alias {
-  display: inline-block;
-  padding: 5px;
+label.alias {
+  display: inline;
+}
+
+button.alias {
+  margin-top: 8px;
 }
 
 div.error {
@@ -71,8 +78,9 @@ div.error {
   border-width: 1px ;
   border-color: #a94442 ;
   border-radius: 4px;
-  padding:16px;
-  margin-top: 2px;
+  padding: 12px 0px 12px 9.5px;
+  margin: 2px 0px ;
+  width: 50%;
 }
 
 .ng-valid[required], .ng-valid.required  {
@@ -81,4 +89,12 @@ div.error {
 
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
+}
+
+form {
+  margin: 0% 10%;
+}
+
+p {
+  margin: 0.5em 0;
 }
