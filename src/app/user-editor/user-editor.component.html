@@ -1,16 +1,25 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" >
 
   <h3>General</h3>
 
-  <label>
-    Name:
-    <input type="text" formControlName="name" required>
-  </label>
+  <label for="name">Name:</label>
+  <input id="name" type="text" formControlName="name" required>
+  
+  <div class="error" *ngIf="name.invalid && (name.dirty || name.touched)">
+    <div *ngIf="name.errors.required">
+      Name is a required field.
+    </div>
+  </div>
+      
 
   <label>
     Email:
     <input type="text" formControlName="email">
   </label>
+  <div class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
+    Email is a required field.
+  </div>
+
 
   <div formGroupName="address">
 

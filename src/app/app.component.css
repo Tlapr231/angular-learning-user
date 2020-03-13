@@ -19,6 +19,7 @@ nav a {
   text-decoration: none;
   display: inline-block;
   background-color:#e84a4a;
+  transition:0.5s;
 }
 
 nav a:visited, a:link {

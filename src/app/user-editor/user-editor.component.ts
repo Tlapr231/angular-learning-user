@@ -57,13 +57,13 @@ export class UserEditorComponent {
     if (this.userForm.valid){
 
       const user:  User = {
-        name: this.userForm.get("name").value.trim(),
-        email: this.userForm.get("email").value.trim(),
-        street: this.userForm.get("address").get("street").value.trim(),
-        city: this.userForm.get("address").get("city").value.trim(),
-        state: this.userForm.get("address").get("state").value.trim(),
-        zip: this.userForm.get("address").get("zip").value.trim(),
-        aliases: this.userForm.get("aliases").value
+        name: this.name.value.trim(),
+        email: this.email.value.trim(),
+        street: this.street.value.trim(),
+        city: this.city.value.trim(),
+        state: this.state.value.trim(),
+        zip: this.zip.value.trim(),
+        aliases: this.aliases.value
       };
 
       this.add(user);
@@ -75,9 +75,6 @@ export class UserEditorComponent {
     }
 
   }
-
-    // //TODO known bug where onSubmit is triggered when "Add Alias" is Clicked
-    // this.goBack();
 
   //User Management (Adding Users)
   getUsers(): void {
@@ -91,9 +88,6 @@ export class UserEditorComponent {
   }
 
   //Aliases
-  get aliases() {
-    return this.userForm.get('aliases') as FormArray;
-  }
 
   addAlias() {
     this.aliases.push(this.fb.control(''));
@@ -107,4 +101,13 @@ export class UserEditorComponent {
     this.location.back();
     console.log("closing");
   }
+
+  //Getters
+  get name() { return this.userForm.get("name"); }
+  get email() { return this.userForm.get("email"); }
+  get street() { return this.userForm.get("address").get("street"); }
+  get city() { return this.userForm.get("address").get("city"); }
+  get state() { return this.userForm.get("address").get("state"); }
+  get zip() { return this.userForm.get("address").get("zip"); }
+  get aliases() { return this.userForm.get('aliases') as FormArray; }
 }
