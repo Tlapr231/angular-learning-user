@@ -12,7 +12,7 @@
   </div>
 
   <label for="email"><span style="color:red">* </span>Email:</label>
-  <input id="email" type="text" formControlName="email">
+  <input id="email" type="text" formControlName="email" required>
   
   <div class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
     <div *ngIf="email.errors.required">
