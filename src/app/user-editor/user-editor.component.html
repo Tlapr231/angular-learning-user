@@ -63,7 +63,7 @@
  
   <hr>
 
-  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+  <button (click)="onClickSubmit()" type="submit" [disabled]="!userForm.valid">Submit</button>
 
 </form>
 

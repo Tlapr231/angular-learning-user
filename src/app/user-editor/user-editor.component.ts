@@ -44,21 +44,36 @@ export class UserEditorComponent {
   //Submitting the form
   onSubmit() {
 
-    const user:  User = {
-      name: this.userForm.get("name").value.trim(),
-      email: this.userForm.get("email").value.trim(),
-      street: this.userForm.get("address").get("street").value.trim(),
-      city: this.userForm.get("address").get("city").value.trim(),
-      state: this.userForm.get("address").get("state").value.trim(),
-      zip: this.userForm.get("address").get("zip").value.trim(),
-      aliases: this.userForm.get("aliases").value
-    };
+    if (this.userForm.valid){
+      this.messageService.add(`Form is Valid`);
+    } else {
+      this.messageService.add(`Form is Invalid`);
+    }
 
-    this.add(user);
+  }
 
-    console.log(user);
-    this.messageService.add(`userEditor: ${this.userForm.value.name} has been created`);
-    
+  onClickSubmit(){
+
+    if (this.userForm.valid){
+
+      const user:  User = {
+        name: this.userForm.get("name").value.trim(),
+        email: this.userForm.get("email").value.trim(),
+        street: this.userForm.get("address").get("street").value.trim(),
+        city: this.userForm.get("address").get("city").value.trim(),
+        state: this.userForm.get("address").get("state").value.trim(),
+        zip: this.userForm.get("address").get("zip").value.trim(),
+        aliases: this.userForm.get("aliases").value
+      };
+
+      this.add(user);
+
+      console.log(user);
+      this.messageService.add(`userEditor: ${this.userForm.value.name} has been created`);
+      this.onSubmit();
+      this.goBack();
+    }
+
   }
 
     // //TODO known bug where onSubmit is triggered when "Add Alias" is Clicked
@@ -90,5 +105,6 @@ export class UserEditorComponent {
 
   goBack(): void {
     this.location.back();
+    console.log("closing");
   }
 }
