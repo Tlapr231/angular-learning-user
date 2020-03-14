@@ -9,7 +9,7 @@
 a.add {
   position: relative;
   cursor: pointer;
-  background-color: #EEE;
+  background-color: #E8ECF0;;
   margin: .5em;
   padding: .3em 0em 0em 0em;
   height: 25px;
@@ -19,28 +19,28 @@ a.add {
   display: block;
   width: 226px;
   text-align: center;
+  transition: 0.5s;
 }
 
 a.add:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
+  background-color: #B8CACF;
+  margin-left: 1em;
 }
 
 .users li {
   position: relative;
   cursor: pointer;
-  background-color: #EEE;
+  background-color: #E8ECF0;
   margin: .5em;
   padding: .3em 0;
   height: 25px;
   border-radius: 4px;
+  transition: 0.5s;
 }
 
 .users li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
+  background-color: #B8CACF;
+  margin-left: 1em;
 }
 
 .users a {
@@ -51,16 +51,12 @@ a.add:hover {
   width: 250px;
 }
 
-.users a:hover {
-  color:#607D8B;
-}
-
 .users .badge {
   display: inline-block;
   font-size: small;
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
-  background-color:#405061;
+  background-color:#082E4D;
   line-height: 1em;
   position: relative;
   left: 0px;
@@ -92,6 +88,6 @@ button.delete {
   top: -39.1px;
   border-radius: 0px 4px 4px 0px;
   height: 34.5px;
-  background-color: gray !important;
+  background-color: #444D57 !important;
   color: white;
 }
