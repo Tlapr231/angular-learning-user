@@ -21,6 +21,7 @@ import { HelloComponent } from './hello.component';
 import { UserEditorComponent } from './user-editor/user-editor.component';
 import { LoginComponent } from './login/login.component';
 import { AccountService } from './account.service';
+import { InMemoryDataAccountService } from './in-memory-data-account.service';
 
 @NgModule({
   imports:      [ 
@@ -41,7 +42,7 @@ import { AccountService } from './account.service';
     HelloComponent, UserEditorComponent, LoginComponent 
   ],
   bootstrap:    [ AppComponent ],
-  providers: [UserService, MessageService, InMemoryDataService, AccountService]
+  providers: [UserService, MessageService, InMemoryDataService, AccountService, InMemoryDataAccountService]
 })
 
 export class AppModule { }
