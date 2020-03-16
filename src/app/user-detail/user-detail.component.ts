@@ -28,6 +28,7 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
+    
     this.subsciption = Observable.fromEvent(document, 'keypress').subscribe(e => {
       if (e.keyCode === ENTER){
         //if enter is pressed.

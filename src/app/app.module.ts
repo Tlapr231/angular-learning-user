@@ -21,6 +21,7 @@ import { HelloComponent } from './hello.component';
 import { UserEditorComponent } from './user-editor/user-editor.component';
 import { LoginComponent } from './login/login.component';
 import { AccountService } from './account.service';
+import { AccountDetailComponent } from './account-detail/account-detail.component';
 
 @NgModule({
   imports:      [ 
@@ -38,7 +39,7 @@ import { AccountService } from './account.service';
     UserDetailComponent, 
     MessagesComponent, 
     UserSearchComponent, 
-    HelloComponent, UserEditorComponent, LoginComponent 
+    HelloComponent, UserEditorComponent, LoginComponent, AccountDetailComponent 
   ],
   bootstrap:    [ AppComponent ],
   providers: [UserService, MessageService, InMemoryDataService, AccountService]
