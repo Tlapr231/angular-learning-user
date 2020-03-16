@@ -4,7 +4,7 @@ import { UsersComponent } from './users/users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserEditorComponent } from './user-editor/user-editor.component';
-import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component'
 
 const routes: Routes = [
@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'detail/:id', component: UserDetailComponent },
   { path: 'userform', component: UserEditorComponent },
-  { path: 'login', component: LoginComponent },
+  // { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent},
   { path: 'account/:id', component: AccountDetailComponent },
 ];
 

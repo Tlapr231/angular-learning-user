@@ -19,7 +19,7 @@ import { MessageService } from './message.service';
 
 import { HelloComponent } from './hello.component';
 import { UserEditorComponent } from './user-editor/user-editor.component';
-import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 import { AccountService } from './account.service';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 
@@ -39,7 +39,7 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
     UserDetailComponent, 
     MessagesComponent, 
     UserSearchComponent, 
-    HelloComponent, UserEditorComponent, LoginComponent, AccountDetailComponent 
+    HelloComponent, UserEditorComponent, SignupComponent, AccountDetailComponent 
   ],
   bootstrap:    [ AppComponent ],
   providers: [UserService, MessageService, InMemoryDataService, AccountService]
