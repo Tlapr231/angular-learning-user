@@ -1,6 +1,6 @@
 /* UserSearch private styles */
 input {
-  height: 25px;
+  height: 2em !important;
   margin: auto;
   font-size: 1em;
   padding-left: 5px;
