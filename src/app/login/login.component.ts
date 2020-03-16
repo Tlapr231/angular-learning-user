@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
+import { Account } from '../account';
+import { AccountService } from '../account.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +11,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private accountService: AccountService) {}
 
   loginForm = this.fb.group({
     name: ['', Validators.required],
@@ -16,6 +21,27 @@ export class LoginComponent implements OnInit {
     username: ['', Validators.required], //Going to need validation on this to make sure there are no duplicates
     password: ['', [Validators.required, Validators.minLength(4)]]
   })
+
+  accounts: Account[];
+
+  ngOnInit() {
+    this.getAccounts();
+  }
+
+  getAccounts(): void {
+    this.accountService.getAccounts().subscribe(accounts => this.accounts = accounts);
+  }
+
+  add(account: Account): void {
+    this.accountService.addAccount({ name } as Account).subscribe(account => {        
+      this.accounts.push(account);
+    });
+  }
+
+  delete(account: Account): void {
+    this.accounts = this.accounts.filter(a => a !== account);
+    this.accountService.deleteAccount(account).subscribe();
+  }
 
  onSubmit() {
 
@@ -25,9 +51,6 @@ export class LoginComponent implements OnInit {
       console.log(`Form is Invalid`);
     }
 
-  }
-
-  ngOnInit() {
   }
 
   //Getters

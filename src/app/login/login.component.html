@@ -43,4 +43,14 @@
     </div>
 	</div>
 
+
 </form>
+
+<ul class="accounts">
+  <li *ngFor="let account of accounts">
+    <a routerLink="/detail/{{account.id}}">
+      <span class="badge">{{ account.id }}</span> {{ account.name }}
+    </a>
+    <button class='delete' title="Delete User" (click)="delete(account)">X</button>
+  </li>
+</ul>
