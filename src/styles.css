@@ -12,3 +12,59 @@ div.extramargin{
     margin: 8px;
   }
 }
+
+button.ghost {
+  font-family: Arial;
+  font-size: 16px;
+  margin: 0 4px;
+  border: 2px solid #147ACC; 
+  border-radius: 4px;
+  padding: 8px 14px;
+  background: white;
+  color: #147ACC;
+  cursor: pointer;
+  cursor: hand;
+  focus: none;
+}
+button.ghost:hover {
+  background-color: #0F5B99;
+  border-color: #0F5B99;
+  color: white;
+}
+
+button.ghost:active {
+  background-color: #082E4D;
+  border-color: #082E4D;
+  color: white;
+  transform: translateY(2px);
+}
+
+button.raised {
+  font-family: Arial;
+  font-size: 16px;
+  margin: 0 4px;
+  border: 2px solid #147ACC;;
+  border-radius: 4px;
+  padding: 8px 14px;
+  background: #147ACC;
+  color: white;
+  cursor: pointer;
+  cursor: hand;
+  outline: 0;
+  
+}
+button.raised:hover {
+  background-color: #0F5B99;
+  border-color: #0F5B99;
+}
+button.raised:active {
+  background-color: #082E4D;
+  border-color: #082E4D;
+  transform: translateY(2px);
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}

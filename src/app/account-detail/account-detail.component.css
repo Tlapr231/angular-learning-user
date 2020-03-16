@@ -1,0 +1,21 @@
+label {
+  display: block;
+  width: 10em;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+}
+
+.container{
+  border-width: 2px;
+  border-style: solid;
+  margin: 8px 0px;
+  border-radius: 10px;
+  padding: 0 16px 16px 16px ;
+  background-color: #fcfcfc;
+}
