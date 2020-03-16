@@ -13,18 +13,27 @@ div.extramargin{
   }
 }
 
-button.ghost {
+hr {
+  border: 1px solid black;
+  background: black;
+}
+
+/* ========== All Button Styles ========== */
+button {
   font-family: Arial;
   font-size: 16px;
   margin: 0 4px;
   border: 2px solid #147ACC; 
   border-radius: 4px;
   padding: 8px 14px;
-  background: white;
-  color: #147ACC;
   cursor: pointer;
   cursor: hand;
-  focus: none;
+  outline: none;
+}
+
+button.ghost {
+  background: white;
+  color: #147ACC;
 }
 button.ghost:hover {
   background-color: #0F5B99;
@@ -40,18 +49,8 @@ button.ghost:active {
 }
 
 button.raised {
-  font-family: Arial;
-  font-size: 16px;
-  margin: 0 4px;
-  border: 2px solid #147ACC;;
-  border-radius: 4px;
-  padding: 8px 14px;
   background: #147ACC;
-  color: white;
-  cursor: pointer;
-  cursor: hand;
-  outline: 0;
-  
+  color: white; 
 }
 button.raised:hover {
   background-color: #0F5B99;
@@ -62,9 +61,26 @@ button.raised:active {
   border-color: #082E4D;
   transform: translateY(2px);
 }
+button.raised:disabled {
+  background: #4680B0;
+  border-color: #4680B0;
+  color: lightgrey; 
+  cursor: default;
+}
 
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
+button.delete {
+  color: #FF4136;
+  background-color: white;
+  border-color: #FF4136;
+}
+button.delete:hover {
+  color: white;
+  background-color: #FF4136;
+  border-color: #FF4136;
+}
+button.delete:active {
+  color: white;
+  background-color: #B31C14;
+  border-color: #B31C14;
+  transform: translateY(2px);
 }

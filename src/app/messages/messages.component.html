@@ -3,8 +3,7 @@
   <hr>
 
   <h2>Messages</h2>
-  <button class="raised"
-          (click)="messageService.clear()">Clear</button>
+  <button class="raised" (click)="messageService.clear()">Clear</button>
   <div *ngFor='let message of messageService.messages'> {{message}} </div>
 
   <hr>

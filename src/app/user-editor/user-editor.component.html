@@ -79,12 +79,12 @@
 		</div>
 	</div>
 
-	<button class="alias" (click)="addAlias()">Add Alias</button>
-	<button class="alias" (click)="goBack()">Cancel</button>
+	<button class="ghost alias" (click)="addAlias()">Add Alias</button>
 
 	<hr>
 
-	<button (click)="onClickSubmit()" type="submit" [disabled]="!userForm.valid">Submit</button>
+	<button class="raised" (click)="onClickSubmit()" type="submit" [disabled]="!userForm.valid">Submit</button>
+	<button class="ghost" (click)="goBack()">Cancel</button>
 
 	<p>Form Value: {{ userForm.value | json }}</p>
 	<p>Form Status: {{ userForm.status }}</p>
