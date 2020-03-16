@@ -10,16 +10,6 @@
 			Name is a required field.
 		</div>
 	</div>
-
-  <label for="username">Username :</label>
-  <input id="username" type="text" formControlName="username" required>
-
-  <div class="error" *ngIf="username.invalid && (username.dirty || username.touched)">
-		<div *ngIf="username.errors.required">
-			Username is a required field.
-		</div>
-	</div>
-  
   <label for="email">Email :</label>
   <input id="email" type="text" formControlName="email" required>
 
@@ -32,6 +22,15 @@
     </div>
 	</div>
 
+  <label for="username">Username :</label>
+  <input id="username" type="text" formControlName="username" required>
+
+  <div class="error" *ngIf="username.invalid && (username.dirty || username.touched)">
+		<div *ngIf="username.errors.required">
+			Username is a required field.
+		</div>
+	</div>
+  
   <label for="password">Password :</label>
   <input id="password" type="password" formControlName="password" required>
 

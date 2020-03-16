@@ -1,7 +1,8 @@
 <div class="stick-top">
   <nav class="navbar">
-    <a class="tab" routerLink="/dashboard">Dashboard</a>
-    <a class="tab" routerLink="/users">Users</a>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/users">Users</a>
+    <a class="login" routerLink='/login'>Login</a>
   </nav>
 </div>
 
@@ -9,7 +10,6 @@
   <hello name="{{ name }}"></hello>
 
   <router-outlet></router-outlet>
-  <app-login></app-login>
   <app-messages></app-messages> 
 
 </div>

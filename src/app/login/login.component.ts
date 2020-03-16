@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
 
   loginForm = this.fb.group({
     name: ['', Validators.required],
-    username: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
+    username: ['', Validators.required], //Going to need validation on this to make sure there are no duplicates
     password: ['', [Validators.required, Validators.minLength(4)]]
   })
 
