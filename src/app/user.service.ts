@@ -37,13 +37,6 @@ export class UserService {
     )
   }
 
-  updateUser (user: User): Observable<any> {
-    return this.http.put(this.usersUrl, user, this.httpOptions).pipe(
-      tap(_ => this.log(`Updated user id : ${user.id}`)),
-      catchError(this.handleError<any>(`updateUser`))
-    )
-  }
-
   addUser (user: User): Observable<User> {
     return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
       tap((newUser: User) => this.log(`Added user with id : ${newUser.id}`)),
@@ -59,6 +52,13 @@ export class UserService {
       tap(_ => this.log(`Deleted user id: ${id}`)),
       catchError(this.handleError<User>('deleteUser'))
     );
+  }
+
+  updateUser (user: User): Observable<any> {
+    return this.http.put(this.usersUrl, user, this.httpOptions).pipe(
+      tap(_ => this.log(`Updated user id : ${user.id}`)),
+      catchError(this.handleError<any>(`updateUser`))
+    )
   }
 
   searchUsers(term: string): Observable<User[]> {

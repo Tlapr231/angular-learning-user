@@ -20,6 +20,7 @@ import { MessageService } from './message.service';
 import { HelloComponent } from './hello.component';
 import { UserEditorComponent } from './user-editor/user-editor.component';
 import { LoginComponent } from './login/login.component';
+import { AccountService } from './account.service';
 
 @NgModule({
   imports:      [ 
@@ -40,7 +41,7 @@ import { LoginComponent } from './login/login.component';
     HelloComponent, UserEditorComponent, LoginComponent 
   ],
   bootstrap:    [ AppComponent ],
-  providers: [UserService, MessageService, InMemoryDataService]
+  providers: [UserService, MessageService, InMemoryDataService, AccountService]
 })
 
 export class AppModule { }
