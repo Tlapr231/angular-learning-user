@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private accountService: AccountService) {}
 
-  loginForm = this.fb.group({
+  signupForm = this.fb.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     username: ['', Validators.required], //Going to need validation on this to make sure there are no duplicates
@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
 
  onSubmit() {
 
-    if (this.loginForm.valid){
+    if (this.signupForm.valid){
       console.log(`Form is Valid`);
     } else {
       console.log(`Form is Invalid`);
@@ -55,9 +55,9 @@ export class SignupComponent implements OnInit {
 
   //Getters
 
-  get name() { return this.loginForm.get('name'); }
-  get username() { return this.loginForm.get('username'); }
-  get email() { return this.loginForm.get('email'); }
-  get password() { return this.loginForm.get('password'); }
+  get name() { return this.signupForm.get('name'); }
+  get username() { return this.signupForm.get('username'); }
+  get email() { return this.signupForm.get('email'); }
+  get password() { return this.signupForm.get('password'); }
 
 }

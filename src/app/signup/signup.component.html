@@ -43,6 +43,13 @@
     </div>
 	</div>
 
+  <hr>
+
+	<button class="raised" (click)="onClickSubmit()" type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+	<button class="ghost" (click)="goBack()">Cancel</button>
+
+	<p>Form Value: {{ signupForm.value | json }}</p> <!-- TO REMOVE -->
+	<p>Form Status: {{ signupForm.status }}</p> <!-- TO REMOVE -->
 
 </form>
 
