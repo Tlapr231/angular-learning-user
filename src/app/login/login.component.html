@@ -1,0 +1,47 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> <!-- TODO -->
+
+  <h3>Login</h3>
+
+  <label for="name">Name :</label>
+  <input id="name" type="text" formControlName="name" required>
+  
+	<div class="error" *ngIf="name.invalid && (name.dirty || name.touched)">
+		<div *ngIf="name.errors.required">
+			Name is a required field.
+		</div>
+	</div>
+
+  <label for="username">Username :</label>
+  <input id="username" type="text" formControlName="username" required>
+
+  <div class="error" *ngIf="username.invalid && (username.dirty || username.touched)">
+		<div *ngIf="username.errors.required">
+			Username is a required field.
+		</div>
+	</div>
+  
+  <label for="email">Email :</label>
+  <input id="email" type="text" formControlName="email" required>
+
+  <div class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
+		<div *ngIf="email.errors.required">
+			Email is a required field.
+		</div>
+    <div *ngIf="email.errors.email"> <!-- TODO -->
+      Email must be a valid email address
+    </div>
+	</div>
+
+  <label for="password">Password :</label>
+  <input id="password" type="password" formControlName="password" required>
+
+    <div class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
+		<div *ngIf="password.errors.required">
+			Password is a required field.
+		</div>
+    <div *ngIf="password.errors.minlength"> <!-- TODO -->
+      Password must be at least 4 characters long
+    </div>
+	</div>
+
+</form>
