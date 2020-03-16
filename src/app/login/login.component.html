@@ -27,7 +27,7 @@
 		<div *ngIf="email.errors.required">
 			Email is a required field.
 		</div>
-    <div *ngIf="email.errors.email"> <!-- TODO -->
+    <div *ngIf="email.errors.email"> 
       Email must be a valid email address
     </div>
 	</div>
@@ -35,11 +35,11 @@
   <label for="password">Password :</label>
   <input id="password" type="password" formControlName="password" required>
 
-    <div class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
+  <div class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
 		<div *ngIf="password.errors.required">
 			Password is a required field.
 		</div>
-    <div *ngIf="password.errors.minlength"> <!-- TODO -->
+    <div *ngIf="password.errors.minlength"> 
       Password must be at least 4 characters long
     </div>
 	</div>
