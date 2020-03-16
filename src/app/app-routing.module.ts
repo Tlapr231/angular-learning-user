@@ -5,7 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserEditorComponent } from './user-editor/user-editor.component';
 import { SignupComponent } from './signup/signup.component';
-import { AccountDetailComponent } from './account-detail/account-detail.component'
+import { AccountDetailComponent } from './account-detail/account-detail.component';
+import { SigninComponent } from './signin/signin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'detail/:id', component: UserDetailComponent },
   { path: 'userform', component: UserEditorComponent },
-  // { path: 'login', component: LoginComponent },
+  { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent},
   { path: 'account/:id', component: AccountDetailComponent },
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 import { Account } from '../account';
 import { AccountService } from '../account.service';
@@ -13,12 +14,13 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private accountService: AccountService) {}
+    private accountService: AccountService,
+    private location: Location) {}
 
   signupForm = this.fb.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    username: ['', Validators.required], //Going to need validation on this to make sure there are no duplicates
+    username: ['', Validators.required], //TODO : Going to need validation on this to make sure there are no duplicates
     password: ['', [Validators.required, Validators.minLength(4)]]
   })
 
@@ -51,6 +53,14 @@ export class SignupComponent implements OnInit {
       console.log(`Form is Invalid`);
     }
 
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  save(): void {
+    this.userService.updateUser(this.user).subscribe(() => this.goBack())
   }
 
   //Getters

@@ -22,6 +22,7 @@ import { UserEditorComponent } from './user-editor/user-editor.component';
 import { SignupComponent } from './signup/signup.component';
 import { AccountService } from './account.service';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   imports:      [ 
@@ -39,7 +40,7 @@ import { AccountDetailComponent } from './account-detail/account-detail.componen
     UserDetailComponent, 
     MessagesComponent, 
     UserSearchComponent, 
-    HelloComponent, UserEditorComponent, SignupComponent, AccountDetailComponent 
+    HelloComponent, UserEditorComponent, SignupComponent, AccountDetailComponent, SigninComponent 
   ],
   bootstrap:    [ AppComponent ],
   providers: [UserService, MessageService, InMemoryDataService, AccountService]
