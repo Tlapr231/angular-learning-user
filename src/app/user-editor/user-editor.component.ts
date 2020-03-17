@@ -15,7 +15,7 @@ export class UserEditorComponent {
   //variables
   users: User[];
 
-  //From information
+  //Form information
   userForm = this.fb.group({
     name: ['', Validators.required],
     email: ['', Validators.required],

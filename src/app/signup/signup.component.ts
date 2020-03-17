@@ -12,11 +12,16 @@ import { AccountService } from '../account.service';
 })
 export class SignupComponent implements OnInit {
 
+  //variables
+  accounts: Account[];
+
+  //constructor
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
     private location: Location) {}
 
+  //form information
   signupForm = this.fb.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
@@ -24,28 +29,23 @@ export class SignupComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(4)]]
   })
 
-  accounts: Account[];
-
   ngOnInit() {
     this.getAccounts();
   }
 
+  //Db methods
   getAccounts(): void {
     this.accountService.getAccounts().subscribe(accounts => this.accounts = accounts);
   }
 
   add(account: Account): void {
-    this.accountService.addAccount({ name } as Account).subscribe(account => {        
+    this.accountService.addAccount(account as Account).subscribe(account => {        
       this.accounts.push(account);
     });
   }
 
-  delete(account: Account): void {
-    this.accounts = this.accounts.filter(a => a !== account);
-    this.accountService.deleteAccount(account).subscribe();
-  }
-
- onSubmit() {
+  //form methods
+  onSubmit() {
 
     if (this.signupForm.valid){
       console.log(`Form is Valid`);
@@ -55,13 +55,30 @@ export class SignupComponent implements OnInit {
 
   }
 
+  onClickSubmit() {
+
+    if (this.signupForm.valid) {
+
+      const account: Account = {
+        name: this.name.value.trim(),
+        email: this.email.value.trim(),
+        username: this.username.value.trim(),
+        password: this.password.value.trim()
+      }
+
+      this.add(account);
+
+      console.log(account);
+      this.onSubmit();
+      this.goBack();
+    }
+  }
+
   goBack(): void {
     this.location.back();
   }
 
-  save(): void {
-    this.userService.updateUser(this.user).subscribe(() => this.goBack())
-  }
+
 
   //Getters
 
