@@ -15,6 +15,7 @@ import { AccountService } from '../account.service';
 export class SigninComponent implements OnInit {
 
   accounts$: Observable<Account[]>;
+  private searchTerms = new Subject<string>();
 
   constructor(
     private fb: FormBuilder,
@@ -27,10 +28,16 @@ export class SigninComponent implements OnInit {
   });
 
   ngOnInit() {
+      this.accounts$ = this.searchTerms.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((term:string) => this.accountService.searchUsers(term)),
+    );
   }
 
   //form methods
   onSubmit() {
+    
 
     if (this.signinForm.valid){
       console.log(`Form is Valid`);
@@ -40,19 +47,26 @@ export class SigninComponent implements OnInit {
 
   }
 
-  fetchAccounts(username: string): void {
-    const searchTerm = this.username.value;
-
-    console.log(`search term: ${searchTerm}`);
-
-    switchMap((term:string) => this.accountService.searchAccount(term));
+  search(term: string): void {
+    this.searchTerms.next(term);
   }
 
-  onClickSignIn(){
-    this.fetchAccounts(this.username.value);
+  // fetchAccounts(username: string): void {
+  //   const searchTerm = this.username.value;
 
-    console.log(this.accounts$);
-  }
+  //   console.log(`search term: ${searchTerm}`);
+
+  //   this.accounts$ = this.accountService.searchAccount(searchTerm);
+  //   this.accounts$.subscribe();
+
+  //   console.log(this.accounts$);
+  // }
+
+  // onClickSignIn(){
+  //   this.fetchAccounts(this.username.value);
+
+  //   console.log(this.accounts$);
+  // }
 
   goBack(): void {
     this.location.back();
