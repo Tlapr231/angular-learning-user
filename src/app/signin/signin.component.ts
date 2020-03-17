@@ -14,8 +14,6 @@ import { AccountService } from '../account.service';
 })
 export class SigninComponent implements OnInit {
 
-  accounts$: Observable<Account[]>;
-  private searchTerms = new Subject<string>();
   accounts: Account[];
 
   constructor(
@@ -55,17 +53,26 @@ export class SigninComponent implements OnInit {
 
   confirmLogin(){
     console.log(this.accounts);
+    let account: Account;
 
     for (var counter: number = 0; counter < this.accounts.length ; counter ++) {
-      console.log(this.accounts[counter]);
+      account = this.accounts[counter];
+
+      
+
+      if (account.username === this.username.value) {
+        if (account.password === this.password.value){
+          this.login(account);
+        }
+      }
     }
 
-      // for (let account in this.accounts) { 
-      //   console.log("Account from account");
-      //   console.log(account);
-      // }
-    
+    console.log(`No user match the username or password`);
+  }
 
+  login(account: Account) {
+    //TODO POP UP
+    console.log(`Account of ${account.name} has been Logged In`);
   }
 
   onClickSignIn(){
