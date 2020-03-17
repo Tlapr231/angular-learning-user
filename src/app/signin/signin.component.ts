@@ -56,10 +56,16 @@ export class SigninComponent implements OnInit {
   confirmLogin(){
     console.log(this.accounts);
 
-    for (const account in this.accounts) {
-      // if (this.username.value.trim() === account.username.value)
-      console.log(account);
+    for (var counter: number = 0; counter < this.accounts.length ; counter ++) {
+      console.log(this.accounts[counter]);
     }
+
+      // for (let account in this.accounts) { 
+      //   console.log("Account from account");
+      //   console.log(account);
+      // }
+    
+
   }
 
   onClickSignIn(){
