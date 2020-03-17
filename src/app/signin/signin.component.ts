@@ -44,21 +44,22 @@ export class SigninComponent implements OnInit {
   fetchAccounts(username: string): void {
     const searchTerm = this.username.value;
 
-    console.log(`search term: ${searchTerm}`);
+    // console.log(`search term: ${searchTerm}`);
 
+    //fetch all accounts matching the a term of the username inputed //TODO Will need to change it so only a full match of the username is returned in the service
     this.accountService.searchAccount(searchTerm).subscribe(accounts => { 
       this.accounts = accounts;
-      this.update("51");
+      this.confirmLogin();
     }) 
-
-    // this.accounts$ = this.accountService.searchAccount(searchTerm);
-    // this.accounts$.subscribe(accounts => this.accounts = accounts);
-    // this.update("56");
   }
 
-  update(msg: string){
-    console.log(`Line ${msg} accounts : `);
+  confirmLogin(){
     console.log(this.accounts);
+
+    for (const account in this.accounts) {
+      // if (this.username.value.trim() === account.username.value)
+      console.log(account);
+    }
   }
 
   onClickSignIn(){
