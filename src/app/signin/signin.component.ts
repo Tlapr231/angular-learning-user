@@ -46,18 +46,23 @@ export class SigninComponent implements OnInit {
 
     console.log(`search term: ${searchTerm}`);
 
-    this.accountService.searchAccount(searchTerm).subscribe(accounts => this.accounts = accounts);
+    this.accountService.searchAccount(searchTerm).subscribe(accounts => { 
+      this.accounts = accounts;
+      this.update("51");
+    }) 
 
     // this.accounts$ = this.accountService.searchAccount(searchTerm);
     // this.accounts$.subscribe(accounts => this.accounts = accounts);
+    // this.update("56");
+  }
 
+  update(msg: string){
+    console.log(`Line ${msg} accounts : `);
     console.log(this.accounts);
   }
 
   onClickSignIn(){
     this.fetchAccounts(this.username.value);
-
-    console.log(this.accounts);
   }
 
   goBack(): void {
