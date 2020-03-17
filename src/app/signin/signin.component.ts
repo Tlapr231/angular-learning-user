@@ -58,11 +58,13 @@ export class SigninComponent implements OnInit {
     for (var counter: number = 0; counter < this.accounts.length ; counter ++) {
       account = this.accounts[counter];
 
-      
+      console.log(`username : ${account.username} | password : ${account.password}`);
+      console.log(`username : ${this.username.value} | password : ${this.password.value}`);
 
       if (account.username === this.username.value) {
         if (account.password === this.password.value){
           this.login(account);
+          return;
         }
       }
     }
