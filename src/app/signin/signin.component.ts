@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { Observable, Subject } from 'rxjs';
 
 import { Account } from '../account';
 import { AccountService } from '../account.service';
@@ -12,13 +13,13 @@ import { AccountService } from '../account.service';
 })
 export class SigninComponent implements OnInit {
 
-  account: Account;
+  accounts$: Observable<Account[]>;
+  private searchTerms = new Subject<string>();
 
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
-    private location: Location
-  ) { }
+    private location: Location) { }
 
   signinForm = this.fb.group({
     username: ['', Validators.required],
@@ -26,6 +27,7 @@ export class SigninComponent implements OnInit {
   });
 
   ngOnInit() {
+    
   }
 
   //form methods
@@ -39,8 +41,23 @@ export class SigninComponent implements OnInit {
 
   }
 
-  onClickSignIn(){
+  search(term: string): void {
+    this.searchTerms.next(term);
   }
+
+  // fetchAccounts(username: string): void {
+
+  //   this.searchTerm = this.username.value;
+  //   this.accountService.searchAccount(this.searchTerm).subscribe(account => {        
+  //   this.accounts$.push(account);
+  //   });
+
+  //   console.log(this.accounts$);
+  // }
+
+  // onClickSignIn(){
+  //   this.fetchAccounts(this.username.value);
+  // }
 
   goBack(): void {
     this.location.back();
@@ -50,3 +67,20 @@ export class SigninComponent implements OnInit {
   get password() { return this.signinForm.get('password'); }
 
 }
+
+//  users$: Observable<User[]> ;
+//   private searchTerms = new Subject<string>();
+
+//   constructor(private userService: UserService) { }
+
+//   search(term: string): void {
+//     this.searchTerms.next(term);
+//   }
+
+//   ngOnInit(): void {
+//     this.users$ = this.searchTerms.pipe(
+//       debounceTime(300),
+//       distinctUntilChanged(),
+//       switchMap((term:string) => this.userService.searchUsers(term)),
+//     );
+//   }

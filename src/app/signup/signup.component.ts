@@ -78,8 +78,6 @@ export class SignupComponent implements OnInit {
     this.location.back();
   }
 
-
-
   //Getters
 
   get name() { return this.signupForm.get('name'); }
