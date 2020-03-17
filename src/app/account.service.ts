@@ -55,7 +55,7 @@ export class AccountService {
       tap(_ => this.log(`Deleted Account id: ${id}`)),
       catchError(this.handleError<Account>('deleteAccount'))
     );
-  }
+  } 
 
   //Update Account
   updateAccount (account: Account): Observable<any> {
