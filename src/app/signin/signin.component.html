@@ -1,1 +1,32 @@
-    <a routerLink="/signup">Sign Up</a>
+<form [formGroup]="signinForm" (ngSubmit)="onSubmit()"> <!-- TODO -->
+
+  <h3>Sign In</h3>
+
+  <label for="username">Username :</label>
+  <input id="username" type="text" formControlName="username" required>
+  
+	<div class="error" *ngIf="username.invalid && (username.dirty || username.touched)">
+		<div *ngIf="username.errors.required">
+			Username is a required field.
+		</div>
+	</div>
+
+  <label for="password">Password :</label>
+  <input id="password" type="password" formControlName="password" required>
+
+  <div class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
+		<div *ngIf="password.errors.required">
+			Password is a required field.
+		</div>
+	</div>
+
+  <div>
+    <button class="raised" (click)="onClickSignIn()" type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+	  <button class="ghost" (click)="goBack()">Cancel</button>
+  </div>
+
+  <a routerLink="/signup">Sign Up</a>
+  <button class="ghost sign-up" (click)="goBack()">Sign Up</button>
+
+</form>
+

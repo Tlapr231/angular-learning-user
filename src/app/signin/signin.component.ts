@@ -12,9 +12,41 @@ import { AccountService } from '../account.service';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  account: Account;
+
+  constructor(
+    private fb: FormBuilder,
+    private accountService: AccountService,
+    private location: Location
+  ) { }
+
+  signinForm = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required]
+  });
 
   ngOnInit() {
   }
+
+  //form methods
+  onSubmit() {
+
+    if (this.signinForm.valid){
+      console.log(`Form is Valid`);
+    } else {
+      console.log(`Form is Invalid`);
+    }
+
+  }
+
+  onClickSignIn(){
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  get username() { return this.signinForm.get('username'); }
+  get password() { return this.signinForm.get('password'); }
 
 }

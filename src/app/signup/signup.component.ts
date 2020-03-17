@@ -83,8 +83,8 @@ export class SignupComponent implements OnInit {
   //Getters
 
   get name() { return this.signupForm.get('name'); }
-  get username() { return this.signupForm.get('username'); }
   get email() { return this.signupForm.get('email'); }
+  get username() { return this.signupForm.get('username'); }
   get password() { return this.signupForm.get('password'); }
 
 }
