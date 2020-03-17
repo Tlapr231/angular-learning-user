@@ -11,8 +11,8 @@
 		</div>
 	</div>
 
-  <label for="password">Password :</label>
-  <input id="password" type="password" formControlName="password" required>
+  <label for="pass">Password :</label>
+  <input id="pass" type="password" formControlName="password" required>
 
   <div class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
 		<div *ngIf="password.errors.required">
@@ -21,7 +21,7 @@
 	</div>
 
   <div>
-    <button class="raised" (click)="onClickSignIn()" type="submit" [disabled]="!signupForm.valid">Sign In</button>
+    <button class="raised" (click)="onClickSignIn()" type="submit" [disabled]="!signinForm.valid">Sign In</button>
 	  <button class="ghost" (click)="goBack()">Cancel</button>
   </div>
 

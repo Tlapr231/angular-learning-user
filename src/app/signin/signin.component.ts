@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 import { Account } from '../account';
 import { AccountService } from '../account.service';
@@ -14,7 +15,6 @@ import { AccountService } from '../account.service';
 export class SigninComponent implements OnInit {
 
   accounts$: Observable<Account[]>;
-  private searchTerms = new Subject<string>();
 
   constructor(
     private fb: FormBuilder,
@@ -27,7 +27,6 @@ export class SigninComponent implements OnInit {
   });
 
   ngOnInit() {
-    
   }
 
   //form methods
@@ -41,23 +40,19 @@ export class SigninComponent implements OnInit {
 
   }
 
-  search(term: string): void {
-    this.searchTerms.next(term);
+  fetchAccounts(username: string): void {
+    const searchTerm = this.username.value;
+
+    console.log(`search term: ${searchTerm}`);
+
+    switchMap((term:string) => this.accountService.searchAccount(term));
   }
 
-  // fetchAccounts(username: string): void {
+  onClickSignIn(){
+    this.fetchAccounts(this.username.value);
 
-  //   this.searchTerm = this.username.value;
-  //   this.accountService.searchAccount(this.searchTerm).subscribe(account => {        
-  //   this.accounts$.push(account);
-  //   });
-
-  //   console.log(this.accounts$);
-  // }
-
-  // onClickSignIn(){
-  //   this.fetchAccounts(this.username.value);
-  // }
+    console.log(this.accounts$);
+  }
 
   goBack(): void {
     this.location.back();
